@@ -17,6 +17,7 @@ function replacer() {}
 
 function addLinks(textToLink) {
   function replacer(match, p1, p2, p3, p4) {
+    p1 = p1.toLowerCase();
     let returnString = "";
     format = "";
     function getFormatValue() {
