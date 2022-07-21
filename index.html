@@ -12,7 +12,7 @@
     <meta property="og:title" content="Citation Link Up Tool | ReadingFaithfully" />
     <meta property="og:description" content="Turn citations in a block of text into links" />
     <meta property="og:url" content="https://linkup.readingfaithfully.org/" />
-    <meta property="og:site_name" content="LinkUP.ReadingFaithfully.org" />
+    <meta property="og:site_name" content="LinkUp.ReadingFaithfully.org" />
     <meta property="og:image" itemprop="image"
         content="https://linkup.readingfaithfully.org/featuredimage-linkup.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -21,33 +21,34 @@
 </head>
 
 <body>
-    <h1>Citation Link Up</h1>
+    <h1>Citation Link Up Tool</h1>
     <div>
         <p>Paste the text you want to link up:</p>
         <textarea id="text-to-link"></textarea>
     </div>
 
     <div id="format-button-area" class="radiobuttonarea" value="format">
-        <div>Format:</div>
-        <label>
-            <input type="radio" value="markdown" name="format" checked="checked" />
-            Markdown
-            <div class="option-descriptions">For note taking apps and forums like Discourse</div>
-        </label>
-        <label>
-            <input type="radio" value="phpbb" name="format" />
-            PHPbb
-            <div class="option-descriptions">For forums like dhammawheel.com</div>
-        </label>
-        <label>
-            <input type="radio" value="html" name="format" />
-            HTML
-            <div class="option-descriptions">For web pages</div>
-        </label>
-
+        <div>Select Format:</div>
+        <div class="radio-options">
+            <label>
+                <input type="radio" value="markdown" name="format" checked="checked" />
+                Markdown
+                <div class="option-descriptions">For note taking apps and forums like Discourse</div>
+            </label>
+            <label>
+                <input type="radio" value="phpbb" name="format" />
+                PHPbb
+                <div class="option-descriptions">For forums like dhammawheel.com</div>
+            </label>
+            <label>
+                <input type="radio" value="html" name="format" />
+                HTML
+                <div class="option-descriptions">For web pages</div>
+            </label>
+        </div>
     </div>
     <div class="button-area">
-        <button id="link-up">Link UP!</button><button id="copy-output">Copy to Clipboard</button>
+        <button id="link-up">Link up!</button><button id="copy-output">Copy to Clipboard</button>
     </div>
 
     <div id="result-area">
