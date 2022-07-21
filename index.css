@@ -1,0 +1,24 @@
+#text-to-link {
+  height: 10rem;
+  width: 100%;
+  max-width: 60rem;
+}
+
+#output-text {
+  border: solid 1px;
+  height: 10rem;
+  font-family: "Courier New", Courier, monospace;
+  overflow: auto;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.option-descriptions {
+  color: gray;
+  margin-left: 1.5rem;
+}
+
+.button-area {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
