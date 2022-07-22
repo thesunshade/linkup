@@ -39,7 +39,7 @@ function removeTags(string, array) {
 linkUpButton.addEventListener("click", e => {
   outputTextArea.innerText = addLinks(textToLink.value);
   if (getFormatValue() === "html") {
-    previewTextArea.innerHTML = addLinks(removeTags(textToLink.value, ["a"]).replace(/\n/g, "<br>"));
+    previewTextArea.innerHTML = addLinks(removeTags(textToLink.value).replace(/\n/g, "<br>"));
   } else {
     previewTextArea.innerHTML = "";
   }

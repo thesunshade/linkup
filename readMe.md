@@ -22,3 +22,6 @@ Chapter and sutta number must be separated by either `.` or `:`.
 
 Favicon source:
 https://www.iconfinder.com/icons/6593875/and_file_files_folders_link_icon
+
+Source for html stripping code:
+https://stackoverflow.com/a/41888402/17050819
