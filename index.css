@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Courier Prime";
+  src: url("CourierPrime-Regular.ttf");
+}
+
 :root {
   --darkRed: #ff0000;
   --offBlack: rgb(28, 2, 2);
@@ -52,8 +57,8 @@ textarea:focus {
 }
 
 #output-text {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
+  font-family: "Courier Prime", monospace;
+  /* font-weight: bold; */
 }
 
 #preview-text {
