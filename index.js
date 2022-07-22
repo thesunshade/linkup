@@ -8,10 +8,20 @@ const separators = [".", ":"];
 
 linkUpButton.addEventListener("click", e => {
   outputTextArea.innerText = addLinks(textToLink.value);
+  const copyNotice = document.querySelector("#copy-notice");
+  copyNotice.innerText = "Linked up!";
+  setTimeout(() => {
+    copyNotice.innerText = "";
+  }, 1000);
 });
 
 copyButton.addEventListener("click", e => {
   navigator.clipboard.writeText(outputTextArea.innerText);
+  const copyNotice = document.querySelector("#copy-notice");
+  copyNotice.innerText = "Copied!";
+  setTimeout(() => {
+    copyNotice.innerText = "";
+  }, 1000);
 });
 
 function replacer() {}
@@ -54,8 +64,6 @@ function addLinks(textToLink) {
       firstNumber = parseInt(firstNumber, 10);
       firstNumber = Math.floor(firstNumber / 10) + 1;
       secondNumber = firstNumber % 10;
-      // separator="."
-      // console.log("oopse udana");
     }
 
     let returnString = "";
@@ -72,8 +80,6 @@ function addLinks(textToLink) {
     getFormatValue();
 
     let translator = "/en/sujato";
-    console.log({ book });
-    console.log({ secondNumber });
     if (book === "sn" && secondNumber === "") {
       translator = "";
     }
@@ -99,9 +105,5 @@ function addLinks(textToLink) {
     return returnString;
   }
   textToLink = textToLink.replace(/(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|thag|thig) *(\d+)(\.|\:*)(\d*)/gi, replacer);
-  //   textToLink = textToLink.replace(
-  //     /(sn|an|ud|snp|thag|thig)\s*(\d+)(\s|\.|\:*)(\d+)/gi,
-  //     "[$&](https://suttacentral.net/$1$2.$4/en/sujato)"
-  //   );
   return textToLink;
 }

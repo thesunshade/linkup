@@ -1,25 +1,73 @@
+:root {
+  --darkRed: #ff0000;
+  --offBlack: rgb(28, 2, 2);
+}
+
+body {
+  background-color: var(--offBlack);
+  color: var(--darkRed);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1rem;
+}
+
 h1 {
   font-size: 1.5rem;
   text-align: center;
 }
 
 p {
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 #text-to-link {
   height: 7rem;
   width: 100%;
-  max-width: 60rem;
+  max-width: 50rem;
+}
+
+textarea {
+  border-radius: 5px;
+  border: solid 0px;
+  padding: 1rem;
+}
+
+textarea:focus {
+  outline: solid var(--darkRed);
+  /* outline-style: inset; */
 }
 
 #output-text {
-  border: solid 1px;
+  border: solid 2px;
+  border-radius: 5px;
   height: 8rem;
   font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
   font-size: 0.8rem;
   overflow: auto;
-  width: 100%;
-  max-width: 60rem;
+  max-width: 50rem;
+  padding: 1rem;
+  background-color: black;
+}
+
+#output-text::selection {
+  background-color: var(--darkRed);
+  color: var(--offBlack);
+}
+
+fieldset {
+  border: none;
+}
+button {
+  background-color: var(--darkRed);
+  color: var(--offBlack);
+  border: solid 2px var(--darkRed);
+  border-radius: 5px;
+  padding: 0.2rem;
+}
+
+button:hover {
+  background-color: var(--offBlack);
+  border-color: var(--darkRed);
+  color: var(--darkRed);
 }
 
 .radiobuttonarea {
@@ -34,12 +82,15 @@ p {
 }
 .option-descriptions {
   color: gray;
+  font-size: 0.9rem;
 }
 
 label {
   display: flex;
   flex-direction: row;
   gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.5rem;
 }
 
 .button-area {
@@ -50,12 +101,50 @@ label {
   gap: 1rem;
 }
 
-@media only screen and (max-width: 575px) {
+.radio-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  padding: 3px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #696969;
+  background-color: var(--offBlack);
+  border-radius: 50%;
+}
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: var(--darkRed);
+}
+
+@media only screen and (max-width: 650px) {
   label {
     flex-direction: column;
     gap: 0rem;
+    align-items: flex-start;
   }
   .option-descriptions {
     margin-left: 1.5rem;
   }
+
+  .radiobuttonarea {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.links-area {
+  /* background-color: white; */
 }

@@ -28,27 +28,31 @@
     </div>
 
     <div id="format-button-area" class="radiobuttonarea" value="format">
-        <div>Select Format:</div>
-        <div class="radio-options">
-            <label>
-                <div><input type="radio" value="markdown" name="format" checked="checked" />
-                    Markdown</div>
-                <div class="option-descriptions">For note taking apps and forums like Discourse</div>
-            </label>
-            <label>
-                <div><input type="radio" value="phpbb" name="format" />
-                    PHPbb</div>
-                <div class="option-descriptions">For forums like dhammawheel.com</div>
-            </label>
-            <label>
-                <div><input type="radio" value="html" name="format" />
-                    HTML</div>
-                <div class="option-descriptions">For web pages</div>
-            </label>
-        </div>
+        <fieldset>
+            <div>Select Format:</div>
+            <div class="radio-options">
+                <label for="markdown">
+                    <div class="radio-input"><input type="radio" value="markdown" id="markdown" name="format"
+                            checked="checked" />
+                        Markdown</div>
+                    <div class="option-descriptions">For note taking apps and forums like Discourse</div>
+                </label>
+                <label for="phpbb">
+                    <div class="radio-input"><input type="radio" value="phpbb" id="phpbb" name="format" />
+                        PHPbb</div>
+                    <div class="option-descriptions">For forums like dhammawheel.com</div>
+                </label for="html">
+                <label>
+                    <div class="radio-input"><input type="radio" value="html" id="html" name="format" />
+                        HTML</div>
+                    <div class="option-descriptions">For web pages</div>
+                </label>
+            </div>
+        </fieldset>
     </div>
     <div class="button-area">
         <button id="link-up">Link up!</button><button id="copy-output">Copy to Clipboard</button>
+        <div class="copy-notice" id="copy-notice"></div>
     </div>
 
     <div id="result-area">
@@ -57,9 +61,32 @@
     <h2>Specifications:</h2>
     <ul>
         <li>This tool will only create valid links if it is given valid citations</li>
+        <li>There is a slight variation between citations in the SN and AN for SuttaCentral.net and DhammaTalks.org
+            (Ajahn Thanissaro). This tool assumes citations on SuttaCentral.net</li>
         <li>SN = Saṁyutta Nikāya; Snp = Sutta Nipāta</li>
-        <li>Itivuttaka must be in the form of 1–112; Udana must be in the form of chappter and sutta</li>
+        <li>The text that you enter is never sent across the internet. All processing is done in your browser.</li>
     </ul>
+    <div class="links-area" style="text-align: center;">
+        <a href="http://readingfaithfully.org" title="Support for your sutta readng practice" rel="noreferrer"
+            target="_blank"><img width="20px" alt="ReadingFaithfully.org icon" src="./images/favicon-rf-red.png"></a>
+        <a href="http://daily.readingfaithfully.org" title="Daily Suttas" rel="noreferrer" target="_blank"><img
+                width="20px" alt="Daily ReadingFaithfully.org icon" src="./images/favicon-drf-red.png"></a>
+        <a href="http://r.readingfaithfully.org" title="Random Suttas" rel="noreferrer" target="_blank"><img
+                width="20px" alt="Random Sutta icon" src="./images/favicon-random-red.png"></a>
+        <a href="https://sutta.readingfaithfully.org" title="Citation Lookup Tool" rel="noreferrer" target="_blank"><img
+                width="20px" src="./images/favicon-citaton-helper-red.png" alt="Citation Lookup tool icon"></a>
+        <a href="https://name.readingfaithfully.org" title="Search for suttas by name" rel="noreferrer"
+            target="_blank"><img width="20px" src="./images/favicon-name-red.png" alt="Sutta Name Search icon"></a>
+        <a href="https://ped.readingfaithfully.org" title="A lightweight interface for the PED" rel="noreferrer"
+            target="_blank"><img width="20px" src="./images/favicon-ped-red.png" alt="Lightweight PED interface"></a>
+        <a href="https://dppn.readingfaithfully.org" title="A lightweight interface the Dictionary of Pali Proper Names"
+            rel="noreferrer" target="_blank"><img width="20px" src="./images/favicon-dppn-red.png"
+                alt="DPPN search icon"></a>
+        <a href="https://sc.readingfaithfully.org" title="A lightweight interface for SuttaCentral.net" rel="noreferrer"
+            target="_blank"><img width="20px" src="./images/favicon-sc-light-red.png" alt="SC Light icon"></a>
+        <a href="https://github.com/thesunshade/mini-sc#readme" title="The source code for this site" rel="noreferrer"
+            target="_blank"><img width="20px" src="./images/GitHub-Mark-64px-red.png" alt="GitHub icon"></a>
+    </div>
     <script type="module" src="index.js"></script>
 </body>
 
