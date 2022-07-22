@@ -4,7 +4,7 @@ const linkUpButton = document.querySelector("#link-up");
 const copyButton = document.querySelector("#copy-output");
 const formatOption = document.querySelector("#format-button-area");
 const singleNumberBooks = ["dn", "mn", "kp", "dhp"];
-const separators = [" ", ".", ":"];
+const separators = [".", ":"];
 
 linkUpButton.addEventListener("click", e => {
   outputTextArea.innerText = addLinks(textToLink.value);
@@ -71,27 +71,34 @@ function addLinks(textToLink) {
     }
     getFormatValue();
 
+    let translator = "/en/sujato";
+    console.log({ book });
+    console.log({ secondNumber });
+    if (book === "sn" && secondNumber === "") {
+      translator = "";
+    }
+
     switch (format) {
       case "markdown":
         returnString = `[${match}](https://suttacentral.net/${book}${firstNumber}${
           secondNumber ? `.${secondNumber}` : ""
-        }/en/sujato)${notSeparator}`;
+        }${translator})${notSeparator}`;
         break;
       case "phpbb":
         returnString = `[url=https://suttacentral.net/${book}${firstNumber}${
           secondNumber ? `.${secondNumber}` : ""
-        }/en/sujato]${match}[/url]${notSeparator}`;
+        }${translator}]${match}[/url]${notSeparator}`;
         break;
       case "html":
         returnString = `<a href="https://suttacentral.net/${book}${firstNumber}${
           secondNumber ? `.${secondNumber}` : ""
-        }/en/sujato">${match}</a>${notSeparator}`;
+        }${translator}">${match}</a>${notSeparator}`;
         break;
     }
 
     return returnString;
   }
-  textToLink = textToLink.replace(/(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|thag|thig)\s*(\d+)(\s|\.|\:*)(\d*)/gi, replacer);
+  textToLink = textToLink.replace(/(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|thag|thig) *(\d+)(\.|\:*)(\d*)/gi, replacer);
   //   textToLink = textToLink.replace(
   //     /(sn|an|ud|snp|thag|thig)\s*(\d+)(\s|\.|\:*)(\d+)/gi,
   //     "[$&](https://suttacentral.net/$1$2.$4/en/sujato)"
