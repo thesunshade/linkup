@@ -8,6 +8,8 @@ body {
   color: var(--darkRed);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 1rem;
+  max-width: 50rem;
+  margin: auto;
 }
 
 h1 {
