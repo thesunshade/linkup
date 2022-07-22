@@ -1,18 +1,53 @@
 const textToLink = document.querySelector("#text-to-link");
 const outputTextArea = document.querySelector("#output-text");
+const previewTextArea = document.querySelector("#preview-text");
 const linkUpButton = document.querySelector("#link-up");
 const copyButton = document.querySelector("#copy-output");
 const formatOption = document.querySelector("#format-button-area");
 const singleNumberBooks = ["dn", "mn", "kp", "dhp"];
 const separators = [".", ":"];
 
+function removeTags(string, array) {
+  return array
+    ? string
+        .split("<")
+        .filter(function (val) {
+          return f(array, val);
+        })
+        .map(function (val) {
+          return f(array, val);
+        })
+        .join("")
+    : string
+        .split("<")
+        .map(function (d) {
+          return d.split(">").pop();
+        })
+        .join("");
+  function f(array, value) {
+    return array
+      .map(function (d) {
+        return value.includes(d + ">");
+      })
+      .indexOf(true) != -1
+      ? "<" + value
+      : value.split(">")[1];
+  }
+}
+
+// Link Up button
 linkUpButton.addEventListener("click", e => {
   outputTextArea.innerText = addLinks(textToLink.value);
+  if (getFormatValue() === "html") {
+    previewTextArea.innerHTML = addLinks(removeTags(textToLink.value, ["a"]).replace(/\n/g, "<br>"));
+  } else {
+    previewTextArea.innerHTML = "";
+  }
   const copyNotice = document.querySelector("#copy-notice");
   copyNotice.innerText = "Linked up!";
   setTimeout(() => {
     copyNotice.innerText = "";
-  }, 1000);
+  }, 1500);
 });
 
 copyButton.addEventListener("click", e => {
@@ -21,10 +56,19 @@ copyButton.addEventListener("click", e => {
   copyNotice.innerText = "Copied!";
   setTimeout(() => {
     copyNotice.innerText = "";
-  }, 1000);
+  }, 1500);
 });
 
-function replacer() {}
+function getFormatValue() {
+  let format = "";
+  var formatOptions = document.getElementsByName("format");
+  for (let i = 0; i < formatOptions.length; i++) {
+    if (formatOptions[i].checked) {
+      format = formatOptions[i].value;
+    }
+  }
+  return format;
+}
 
 function addLinks(textToLink) {
   function replacer(match, p1, p2, p3, p4) {
@@ -67,17 +111,7 @@ function addLinks(textToLink) {
     }
 
     let returnString = "";
-    let format = "";
-
-    function getFormatValue() {
-      var formatOptions = document.getElementsByName("format");
-      for (let i = 0; i < formatOptions.length; i++) {
-        if (formatOptions[i].checked) {
-          format = formatOptions[i].value;
-        }
-      }
-    }
-    getFormatValue();
+    let format = getFormatValue();
 
     let translator = "/en/sujato";
     if (book === "sn" && secondNumber === "") {

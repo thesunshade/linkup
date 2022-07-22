@@ -21,7 +21,8 @@
 </head>
 
 <body>
-    <h1>Citation Link Up Tool</h1>
+    <h1>Citation Link Up Tool <img height="22" style="vertical-align:middle;position: relative;bottom:3px"
+            src="favicon.png" alt="logo"></h1>
     <div>
         <p>Paste the text you want to link up:</p>
         <textarea id="text-to-link"></textarea>
@@ -57,6 +58,8 @@
 
     <div id="result-area">
         <div id="output-text"></div>
+        <p>Preview (For html only. Only links are rendered)</p>
+        <div id="preview-text"></div>
     </div>
     <h2>Specifications:</h2>
     <ul>
@@ -65,6 +68,8 @@
         <li>There is a slight variation between citations in the SN and AN for SuttaCentral.net and DhammaTalks.org
             (Ajahn Thanissaro). This tool assumes citations on SuttaCentral.net</li>
         <li>SN = Saṁyutta Nikāya; Snp = Sutta Nipāta</li>
+        <li>The original text should not contain any linked citations or they will be double linked in the final output.
+        </li>
         <li>The text that you enter is never sent across the internet. All processing is done in your browser.</li>
     </ul>
     <div class="links-area">
