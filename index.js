@@ -104,6 +104,9 @@ function addLinks(textToLink) {
 
     return returnString;
   }
-  textToLink = textToLink.replace(/(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|thag|thig) *(\d+)(\.|\:*)(\d*)/gi, replacer);
+  textToLink = textToLink.replace(
+    /(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|Vv|Pv|thag|thig) *(\d+)(\.|\:*)(\d*)/gi,
+    replacer
+  );
   return textToLink;
 }
