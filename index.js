@@ -48,18 +48,22 @@ linkUpButton.addEventListener("click", e => {
   }
   const copyNotice = document.querySelector("#copy-notice");
   copyNotice.innerText = "Linked up!";
+  copyNotice.classList.add("fade");
   setTimeout(() => {
     copyNotice.innerText = "";
-  }, 1500);
+    copyNotice.classList.remove("fade");
+  }, 1900);
 });
 
 copyButton.addEventListener("click", e => {
   navigator.clipboard.writeText(outputTextArea.innerText);
   const copyNotice = document.querySelector("#copy-notice");
+  copyNotice.classList.add("fade");
   copyNotice.innerText = "Copied!";
   setTimeout(() => {
     copyNotice.innerText = "";
-  }, 1500);
+    copyNotice.classList.remove("fade");
+  }, 1900);
 });
 
 function getFormatValue() {
@@ -74,13 +78,23 @@ function getFormatValue() {
 }
 
 function addLinks(textToLink) {
+  const allTranslations = document.querySelector("#all-translations").checked;
+  const newTab = document.querySelector("#new-tab").checked;
+  let openInNewTab = "";
+  if (newTab) {
+    openInNewTab = `rel="noreferrer" target="_blank"`;
+  }
+  let translator = "/en/sujato";
+  if (allTranslations) {
+    translator = "";
+  }
+
   function replacer(match, p1, p2, p3, p4) {
     let book = p1.toLowerCase();
     let firstNumber = p2;
     let separator = p3;
     let secondNumber = p4;
     let notSeparator = "";
-
     if (singleNumberBooks.includes(book) && separators.includes(separator)) {
       match = match.slice(0, -1);
       notSeparator = separator;
@@ -116,7 +130,6 @@ function addLinks(textToLink) {
     let returnString = "";
     let format = getFormatValue();
 
-    let translator = "/en/sujato";
     if (book === "sn" && secondNumber === "") {
       translator = "";
     }
@@ -135,7 +148,7 @@ function addLinks(textToLink) {
       case "html":
         returnString = `<a href="https://suttacentral.net/${book}${firstNumber}${
           secondNumber ? `.${secondNumber}` : ""
-        }${translator}">${match}</a>${notSeparator}`;
+        }${translator}" ${openInNewTab}>${match}</a>${notSeparator}`;
         break;
     }
 

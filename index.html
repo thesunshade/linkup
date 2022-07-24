@@ -27,29 +27,45 @@
         <p>Paste the text you want to link up:</p>
         <textarea id="text-to-link"></textarea>
     </div>
+    <div class="settings-area">
+        <div id="format-button-area" class="radiobuttonarea" value="format">
+            <fieldset>
+                <div>Select Format:</div>
+                <div class="radio-options">
+                    <label for="markdown">
+                        <div class="radio-input"><input type="radio" value="markdown" id="markdown" name="format"
+                                checked="checked" />
+                            <span class="radio-icon"></span>Markdown
+                        </div>
+                        <div class="option-descriptions">For forums like discourse.suttacentral.net</div>
+                    </label>
+                    <label for="phpbb">
+                        <div class="radio-input"><input type="radio" value="phpbb" id="phpbb" name="format" />
+                            <span class="radio-icon"></span>PHPbb
+                        </div>
+                        <div class="option-descriptions">For forums like dhammawheel.com</div>
+                    </label for="html">
+                    <label>
+                        <div class="radio-input"><input type="radio" value="html" id="html" name="format" />
+                            <span class="radio-icon"></span>HTML
+                        </div>
+                        <div class="option-descriptions">For web pages</div>
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+        <div class="misc-settings">
+            <div>Other Settings:</div>
+            <label for="all-translations">
+                <input type="checkbox" name="all-translations" id="all-translations">
+                <span class="check-icon"></span>Link to page with all translations
+            </label>
+            <label for="new-tab">
+                <input type="checkbox" name="new-tab" id="new-tab"><span class="check-icon"></span>
+                Open HTML links in new tab
+            </label>
 
-    <div id="format-button-area" class="radiobuttonarea" value="format">
-        <fieldset>
-            <div>Select Format:</div>
-            <div class="radio-options">
-                <label for="markdown">
-                    <div class="radio-input"><input type="radio" value="markdown" id="markdown" name="format"
-                            checked="checked" />
-                        Markdown</div>
-                    <div class="option-descriptions">For forums like discourse.suttacentral.net</div>
-                </label>
-                <label for="phpbb">
-                    <div class="radio-input"><input type="radio" value="phpbb" id="phpbb" name="format" />
-                        PHPbb</div>
-                    <div class="option-descriptions">For forums like dhammawheel.com</div>
-                </label for="html">
-                <label>
-                    <div class="radio-input"><input type="radio" value="html" id="html" name="format" />
-                        HTML</div>
-                    <div class="option-descriptions">For web pages</div>
-                </label>
-            </div>
-        </fieldset>
+        </div>
     </div>
     <div class="button-area">
         <button id="link-up">Link up!</button><button id="copy-output">Copy to Clipboard</button>

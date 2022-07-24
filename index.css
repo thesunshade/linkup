@@ -3,9 +3,14 @@
   src: url("CourierPrime-Regular.ttf");
 }
 
+/* * {
+  border: solid 1px blue;
+} */
+
 :root {
   --darkRed: #ff0000;
   --offBlack: rgb(28, 2, 2);
+  --gray: #808080;
 }
 
 body {
@@ -74,8 +79,16 @@ textarea:focus {
   color: var(--offBlack);
 }
 
+.settings-area {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 fieldset {
   border: none;
+  padding: 0rem;
+  margin: 0rem;
 }
 button {
   background-color: var(--darkRed);
@@ -91,18 +104,148 @@ button:hover {
   color: var(--darkRed);
 }
 
+.copy-notice {
+  font-weight: bold;
+}
+
+.fade {
+  animation: fadeIn 2s;
+  /* -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .radiobuttonarea {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  padding: 0rem;
 }
 
-.radio-options {
-  /* margin-left: 2rem; */
+.misc-settings {
+  margin-top: 0.5rem;
 }
+
+/* Custom Radiobuttons */
+input[type="radio"] {
+  display: none;
+}
+
+.radio-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(./images/radio--unchecked.svg);
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+input[type="radio"]:checked + .radio-icon {
+  background-image: url(./images/radio--checked.svg);
+}
+
+/* Custom Checkboxes */
+input[type="checkbox"] {
+  display: none;
+}
+.check-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url(./images/checkbox--unchecked.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+
+input[type="checkbox"]:checked + .check-icon {
+  background-image: url(./images/checkbox--checked.svg);
+}
+
+img.checkbox {
+  height: 20px;
+  margin-right: 0.5rem;
+}
+/* END Custom Checkboxes */
+
 .option-descriptions {
-  color: gray;
+  color: var(--gray);
   font-size: 0.9rem;
 }
 
@@ -128,29 +271,13 @@ label {
   align-items: center;
 }
 
-input[type="radio"] {
-  /* remove standard background appearance */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* create custom radiobutton appearance */
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  padding: 2px;
-  /* background-color only for content */
-  background-clip: content-box;
-  border: 1.5px solid #696969;
-  background-color: var(--offBlack);
-  border-radius: 45%;
-}
-/* appearance for checked radiobutton */
-input[type="radio"]:checked {
-  background-color: var(--darkRed);
-}
+/*old radio code was here*/
 
-@media only screen and (max-width: 650px) {
-  label {
+@media only screen and (max-width: 770px) {
+  .settings-area {
+    flex-direction: column;
+  }
+  .radio-options label {
     flex-direction: column;
     gap: 0rem;
     align-items: flex-start;
