@@ -25,12 +25,12 @@
             src="favicon.png" alt="logo"></h1>
     <div>
         <p>Paste the text you want to link up:</p>
-        <textarea id="text-to-link"></textarea>
+        <textarea id="text-to-link" spellcheck="false"></textarea>
     </div>
     <div class="settings-area">
         <div id="format-button-area" class="radiobuttonarea" value="format">
             <fieldset>
-                <div>Select Format:</div>
+                <div class="settings-heading">Select Format:</div>
                 <div class="radio-options">
                     <label for="markdown">
                         <div class="radio-input"><input type="radio" value="markdown" id="markdown" name="format"
@@ -55,7 +55,7 @@
             </fieldset>
         </div>
         <div class="misc-settings">
-            <div>Other Settings:</div>
+            <div class="settings-heading">Other Settings:</div>
             <label for="all-translations">
                 <input type="checkbox" name="all-translations" id="all-translations">
                 <span class="check-icon"></span>Link to page with all translations

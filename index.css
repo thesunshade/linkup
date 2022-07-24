@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Courier Prime";
-  src: url("CourierPrime-Regular.ttf");
+  font-family: "Source Pro Mono";
+  src: url("SourceCodePro-Regular.ttf");
 }
 
 /* * {
@@ -41,10 +41,15 @@ textarea {
   border: solid 0px;
   padding: 1rem;
   background-color: #baafaf;
+  max-width: 100%;
+  margin: 0rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Source Pro Mono", monospace;
 }
 
 textarea:focus {
-  outline: solid var(--darkRed);
+  outline: solid 2px var(--darkRed);
   background-color: #dfdada;
 }
 
@@ -54,7 +59,7 @@ textarea:focus {
   border-radius: 5px;
   height: 8rem;
 
-  font-size: 0.8rem;
+  font-size: 1rem;
   overflow: auto;
   max-width: 50rem;
   padding: 1rem;
@@ -62,8 +67,7 @@ textarea:focus {
 }
 
 #output-text {
-  font-family: "Courier Prime", monospace;
-  /* font-weight: bold; */
+  font-family: "Source Pro Mono", monospace;
 }
 
 #preview-text {
@@ -83,6 +87,10 @@ textarea:focus {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+}
+
+.settings-heading {
+  font-weight: bold;
 }
 
 fieldset {
@@ -246,7 +254,7 @@ img.checkbox {
 
 .option-descriptions {
   color: var(--gray);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 label {
@@ -271,7 +279,9 @@ label {
   align-items: center;
 }
 
-/*old radio code was here*/
+li {
+  line-height: 1.5rem;
+}
 
 @media only screen and (max-width: 770px) {
   .settings-area {
