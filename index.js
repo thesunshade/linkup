@@ -1,39 +1,52 @@
+import { removeTags } from "./removeTags.js";
+
 const textToLink = document.querySelector("#text-to-link");
 const outputTextArea = document.querySelector("#output-text");
 const previewTextArea = document.querySelector("#preview-text");
 const linkUpButton = document.querySelector("#link-up");
 const copyButton = document.querySelector("#copy-output");
-const formatOption = document.querySelector("#format-button-area");
 const singleNumberBooks = ["dn", "mn", "kp", "dhp"];
 const separators = [".", ":"];
 
-function removeTags(string, array) {
-  return array
-    ? string
-        .split("<")
-        .filter(function (val) {
-          return f(array, val);
-        })
-        .map(function (val) {
-          return f(array, val);
-        })
-        .join("")
-    : string
-        .split("<")
-        .map(function (d) {
-          return d.split(">").pop();
-        })
-        .join("");
-  function f(array, value) {
-    return array
-      .map(function (d) {
-        return value.includes(d + ">");
-      })
-      .indexOf(true) != -1
-      ? "<" + value
-      : value.split(">")[1];
+/* Format Options Setting */
+const formatOptionsSetting = document.querySelector("#format-button-area");
+// if setting is stored in localStorage, make frontend match setting
+if (localStorage.formatOptions) {
+  let format = localStorage.formatOptions;
+  var formatOptions = document.getElementsByName("format");
+  for (let i = 0; i < formatOptions.length; i++) {
+    if (format === formatOptions[i].value) {
+      formatOptions[i].checked = true;
+      i = formatOptions.length;
+    }
   }
 }
+// when setting is changed, change it in localStorage
+formatOptionsSetting.addEventListener("click", () => {
+  localStorage.formatOptions = getFormatValue();
+});
+
+/* Translation Setting */
+const allTranslationsSetting = document.querySelector("#all-translations");
+// if setting is stored in localStorage, make frontend match setting
+if (localStorage.allTranslations) {
+  allTranslationsSetting.checked = JSON.parse(localStorage.allTranslations);
+}
+// when setting is changed, change it in localStorage
+allTranslationsSetting.addEventListener("click", () => {
+  localStorage.allTranslations = allTranslationsSetting.checked;
+});
+
+/* New Tab Setting */
+const newTabSetting = document.querySelector("#new-tab");
+// if setting is stored in localStorage, make frontend match setting
+if (localStorage.newTab) {
+  newTabSetting.checked = JSON.parse(localStorage.newTab);
+}
+// when setting is changed, change it in localStorage
+newTabSetting.addEventListener("click", () => {
+  localStorage.newTab = newTabSetting.checked;
+});
 
 // Link Up button
 linkUpButton.addEventListener("click", e => {
@@ -55,6 +68,7 @@ linkUpButton.addEventListener("click", e => {
   }, 1900);
 });
 
+// copy button
 copyButton.addEventListener("click", e => {
   navigator.clipboard.writeText(outputTextArea.innerText);
   const copyNotice = document.querySelector("#copy-notice");
@@ -77,6 +91,7 @@ function getFormatValue() {
   return format;
 }
 
+// this is the main function that does the linking
 function addLinks(textToLink) {
   const allTranslations = document.querySelector("#all-translations").checked;
   const newTab = document.querySelector("#new-tab").checked;
