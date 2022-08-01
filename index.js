@@ -51,6 +51,8 @@ newTabSetting.addEventListener("click", () => {
 // Link Up button
 linkUpButton.addEventListener("click", e => {
   outputTextArea.innerText = addLinks(textToLink.value);
+
+  // this only affects the preview text
   if (getFormatValue() === "html") {
     previewTextArea.innerHTML = addLinks(removeTags(textToLink.value).replace(/\n/g, "<br>")).replace(
       `<a href=`,
@@ -59,6 +61,7 @@ linkUpButton.addEventListener("click", e => {
   } else {
     previewTextArea.innerHTML = "";
   }
+
   const copyNotice = document.querySelector("#copy-notice");
   copyNotice.innerText = "Linked up!";
   copyNotice.classList.add("fade");
@@ -92,17 +95,11 @@ function getFormatValue() {
 }
 
 // this is the main function that does the linking
+// it accepts the entire block of text to link and returns the linked up text
 function addLinks(textToLink) {
   const allTranslations = document.querySelector("#all-translations").checked;
   const newTab = document.querySelector("#new-tab").checked;
   let openInNewTab = "";
-  if (newTab) {
-    openInNewTab = `rel="noreferrer" target="_blank"`;
-  }
-  let translator = "/en/sujato";
-  if (allTranslations) {
-    translator = "";
-  }
 
   function replacer(match, p1, p2, p3, p4) {
     let book = p1.toLowerCase();
@@ -169,9 +166,21 @@ function addLinks(textToLink) {
 
     return returnString;
   }
+
+  if (newTab) {
+    openInNewTab = `rel="noreferrer" target="_blank"`;
+  }
+
+  let translator = "/en/sujato";
+  if (allTranslations) {
+    translator = "";
+  }
+
+  // and this is what does it.
   textToLink = textToLink.replace(
-    /(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|Vv|Pv|thag|thig) *(\d+)(\.|\:*)(\d*)/gi,
+    /(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|vv|pv|thag|thig) *(\d+)(\.|\:*)(\d*)/gi,
     replacer
   );
+
   return textToLink;
 }
