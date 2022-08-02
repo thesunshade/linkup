@@ -112,6 +112,11 @@ function addLinks(textToLink) {
       notSeparator = separator;
     }
 
+    let translator = "/en/sujato";
+    if (allTranslations) {
+      translator = "";
+    }
+
     if (book === "iti" && secondNumber) {
       separator = "";
       firstNumber = parseInt(firstNumber, 10);
@@ -171,16 +176,16 @@ function addLinks(textToLink) {
     openInNewTab = `rel="noreferrer" target="_blank"`;
   }
 
-  let translator = "/en/sujato";
-  if (allTranslations) {
-    translator = "";
-  }
-
   // and this is what does it.
-  textToLink = textToLink.replace(
-    /(mn|dn|kp|khp|dhp|iti|sn|an|ud|snp|vv|pv|thag|thig) *(\d+)(\.|\:*)(\d*)/gi,
-    replacer
-  );
+
+  //no range allowed, no chapters
+  textToLink = textToLink.replace(/\b(mn|dn|kp|khp|dhp) ?(\d+)()()\b/gi, replacer);
+
+  //ranges allowed and chapters
+  textToLink = textToLink.replace(/\b(sn|an) ?(\d+)(\.|\:*)(\d*-*\d*)\b/gi, replacer);
+
+  // chapters and no ranges
+  textToLink = textToLink.replace(/\b(iti|itv|ud|snp|vv|pv|thag|thig) ?(\d+)(\.|\:*)(\d*)\b/gi, replacer);
 
   return textToLink;
 }
