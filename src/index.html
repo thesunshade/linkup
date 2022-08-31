@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <title>Citation Link Up</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Citation Link Up Tool | ReadingFaithfully" />
+    <meta property="og:description" content="Turn citations in a block of text into links" />
+    <meta property="og:url" content="https://linkup.readingfaithfully.org/" />
+    <meta property="og:site_name" content="LinkUp.ReadingFaithfully.org" />
+    <meta property="og:image" itemprop="image"
+        content="https://linkup.readingfaithfully.org/featuredimage-linkup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="LinkUp.ReadingFaithfully.org" />
+    <meta name="twitter:creator" content="ReadingFaithfully.org" />
+</head>
+
+<body>
+    <h1>Citation Link Up Tool <img height="22" style="vertical-align:middle;position: relative;bottom:3px"
+            src="favicon.png" alt="logo"></h1>
+    <div>
+        <p>Paste the text you want to link up:</p>
+        <textarea id="text-to-link" spellcheck="false"></textarea>
+    </div>
+    <div id="settings-area" class="settings-area"></div>
+    <div class="button-area">
+        <button id="link-up">Link up!</button>
+        <button id="copy-output">Copy to Clipboard</button>
+        <div class="action-message" id="action-message"></div>
+        <button id="clear-input" class="right-button">Clear</button>
+    </div>
+
+    <div id="result-area">
+        <div id="output-text"></div>
+        <p>Preview (For html only. Only links are rendered)</p>
+        <div id="preview-text"></div>
+    </div>
+    <div id="instructions-area"></div>
+    <div id="links-area" class="links-area"></div>
+    <script type="module" src="index.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120551088-1');
+    </script>
+</body>
+
+</html>

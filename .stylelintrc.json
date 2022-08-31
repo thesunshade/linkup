@@ -1,0 +1,12 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "color-hex-length": null,
+        "custom-property-pattern": null,
+        "at-rule-no-vendor-prefix": null,
+        "no-descending-specificity": null,
+        "declaration-block-single-line-max-declarations": 5,
+        "selector-combinator-space-before": null,
+        "selector-combinator-space-after": null
+    }
+}
