@@ -1,4 +1,4 @@
-export function removeTags(string, array) {
+export default function removeTags(string, array) {
   return array
     ? string
         .split("<")

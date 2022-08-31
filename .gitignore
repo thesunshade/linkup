@@ -1,1 +1,6 @@
 old
+.vscode
+jasmine
+node_modules
+.eslintrc.json
+
